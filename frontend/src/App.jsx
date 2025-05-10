@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Card from "./components/Card.jsx";
+import { useEffect, useState } from "react";
+
+//import Data from './data/data.json'; // importar directamente
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const [data, setData] = useState([]);
+	useEffect(() => {
+		fetch('/data/data.json')
+			.then((res) => res.json())
+			.then((json) => setData(json))
+			.catch((err) => console.error('Error al cargar el JSON:', err));
+	}, []);
+	if (data.length > 0)
+		console.log(data)
+	
+	//console.log(Data);
+	//getDatos('./data/data.json');
+	
+	return (
+		<>
+			<div className="App">
+				<h1>Hola Mundo</h1>
+			</div>
+			<Card/>
+		</>
+	)
 }
 
 export default App
