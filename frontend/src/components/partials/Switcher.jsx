@@ -1,16 +1,19 @@
-
-import { useState } from 'react'
 import { Switch } from '@headlessui/react'
-export const Switcher = () => {
-	const [enabled, setEnabled] = useState(false)
 
+function Switcher({ setIsEnabled, isEnabled, cardId }) {
+
+	const changCardState = () => {
+		const card = document.getElementById(cardId);
+		card.dataset.active = !card.dataset.active;
+		setIsEnabled(!isEnabled);
+	}
 
 	return (
 
 		<Switch
-			checked={enabled}
-			onChange={setEnabled}
-			className= "group relative inline-flex h-5 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-rojo-7 focus:ring-offset-2 focus:outline-hidden data-checked:bg-rojo-7"
+			checked={!isEnabled}
+			onChange={changCardState}
+			className= "group relative inline-flex h-5 w-10 shrink-0 cursor-pointer rounded-full border-2 border-neutro-1 border-transparenttransition-colors duration-200 ease-in-out focus:ring-2 focus:ring-rojo-7 focus:ring-offset-2 dark:ring-offset-neutro-8 focus:outline-hidden bg-neutro-1 dark:bg-neutro-6 dark:border-neutro-6 data-checked:bg-rojo-7"
 		>
 			<span
 				aria-hidden="true"
@@ -19,3 +22,5 @@ export const Switcher = () => {
 		</Switch>
 	)
 }
+
+export default Switcher

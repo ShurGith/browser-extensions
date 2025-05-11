@@ -12,9 +12,11 @@
     --color-neutro-4: hsl(217, 61%, 90%);
     --color-neutro-3: hsl(0, 0%, 93%);
     --color-neutro-2: hsl(200, 60%, 99%);
+    --color-neutro-1: hsl(240, 24%, 78%);
     --color-rojo-4: hsl(3, 86%, 64%);
     --color-rojo-5: hsl(3, 71%, 56%);
     --color-rojo-7: hsl(3, 77%, 44%);
+    
     --text-principal: 16px;
     --font-weight-cuatro: 400;
     --font-weight-cinco: 500;
