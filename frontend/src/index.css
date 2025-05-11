@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme{
     --font-display: "Noto Sans", sans-serif;
@@ -18,6 +19,10 @@
     --font-weight-cuatro: 400;
     --font-weight-cinco: 500;
     --font-weight-siete: 700;
-
-
+}
+body {
+ background-color: var(--color-neutro-4);
+}
+[data-theme=dark] body {
+ background-color: var(--color-neutro-9);
 }
